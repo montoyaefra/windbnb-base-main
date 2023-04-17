@@ -1,0 +1,68 @@
+
+
+body, html {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+p, .card-tittle{
+    color: #333333;
+}
+
+
+
+.material-symbols-outlined {
+    fill: 1;
+    color: rgb(235, 87, 87);
+}
+ 
+.card-img {
+    width: 400px;
+}
+
+.carta img{
+    aspect-ratio: 3/2;
+}
+
+.numbers{
+    font-size: 14px;
+}   
+
+.hosts {
+    font-size:14px ;
+    padding: 3px;
+}
+
+.belem {
+    text-decoration: none;
+    color: #333333;
+}
+
+.label{
+    font-size: 10px;
+    padding-left: 15px;
+    
+}
+
+.labele{
+    padding-left: 8px;
+}
+
+.search {
+    font-size: 1rem;
+    background-color: #eb5757;
+
+}
+
+.iconspan, .search p{
+    color: white;
+    padding-top: 15px;
+    padding-left: 7px
+    
+}
+
+.divs{
+    min-width: 140px;
+    height: auto;
+}
+
