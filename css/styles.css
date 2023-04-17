@@ -5,6 +5,10 @@ body, html {
 
 }
 
+span {
+    font-family: 'Mulish', sans-serif;
+}
+
 p, .card-tittle{
     color: #333333;
 }
@@ -63,6 +67,5 @@ p, .card-tittle{
 
 .divs{
     min-width: 140px;
-    height: auto;
 }
 
