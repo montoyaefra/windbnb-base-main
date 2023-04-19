@@ -47,7 +47,7 @@
       <a class="material-symbols-outlined text-danger p-3 pointer belem" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">search</a>
 <!-- //-------------------------------------------------------       -->
 
-<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+<div class="offcanvas offcanvas-top h-75" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasTopLabel"></h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -56,17 +56,17 @@
 
     <form action="#" class="row g-1 mt-1 d-flex" id="form">
       <div class="col-4 border rounded-4 labele">
-        <label for="firstlabel" class="form-label label">LOCATION</label>
-        <input type="text" class="form-control border-0 opacity-50" id="firstlabel" placeholder="Add Location" name="location" >
+        <label for="firstlocation" class="form-label label">LOCATION</label>
+        <input type="text" class="form-control border-0 opacity-50" id="firstlocation" placeholder="Add Location" name="location" >
       </div>
-  
+
       <div class="col-4 border rounded-4 labele">
-        <label for="secondtlabel" class="form-label label">GUESTS</label>
-        <input type="text" class="form-control border-0 opacity-50" id="secondtlabel" placeholder="Add Guests" >
+        <label for="getguest" class="form-label label">GUESTS</label>
+        <input type="text" class="form-control border-0 opacity-50" id="getguest" placeholder="Add Guests" >
       </div>
       
       <div class="col-4 border rounded-4  d-flex flex-row justify-content-center align-content-center">
-        <button type="submit" class="btn">
+        <button type="submit" class="btn" id="boton">
           <div class="border rounded-5 search d-flex flex-row justify-content-center align-content-center divs h-auto">
             <span class="material-symbols-outlined iconspan">search</span>
           <p>Search</p>
@@ -74,11 +74,16 @@
         </button>
       </div>
     </form>
-      
-
+      <div id="lista"></div>
+    <!-- -->
     </div>
-  </div>
+    <!-- botones de suma y resta -->
+    <div id="guests" class="d-flex flex-wrap justify-content-center align-content-center mb-md-5">
+      
+    </div>
+    
 </div>
+
 <!-- //----------------------------------- -->
     </article>
   </header>
@@ -100,6 +105,7 @@
 
     </section>
   </main>
+  <footer><span class="d-flex text-center justify-content-center">created by Erick Montoya - devChallenges.oi</span></footer>
 </body>
 
 </html>

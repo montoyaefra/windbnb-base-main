@@ -8,9 +8,18 @@ const getData = async (URL) => {
 
 }
 
+const filterByLocation = (arr, filtro) => {
+  
+  let filtered = arr.filter( elem => {
+    return elem.city.toLowerCase().includes(filtro.toLowerCase()) || elem.country.toLowerCase().includes(filtro.toLowerCase())
+  })
 
+  console.log(filtered);
+  return filtered
+}
 
 export default {
-  getData
+  getData,
+  filterByLocation
 }
 

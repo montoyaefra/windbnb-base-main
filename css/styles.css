@@ -21,7 +21,7 @@ p, .card-tittle{
 }
  
 .card-img {
-    width: 400px;
+    width: 350px;
 }
 
 .carta img{
@@ -69,3 +69,16 @@ p, .card-tittle{
     min-width: 140px;
 }
 
+.lista{
+    list-style-image: url(/windbnb-base-main/img/coma.svg);
+    padding-top: 20px;
+}
+
+.guest{
+    margin-bottom: 75px;
+}
+
+footer span {
+    margin-top: 40px;
+    color: #333333;
+}

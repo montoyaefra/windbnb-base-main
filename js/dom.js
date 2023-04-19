@@ -8,8 +8,12 @@ con la manipulación del DOM en la aplicación
 // traer elemento del DOM por selector CSS
 const caja = (selector) => document.querySelector(selector);
 
+const newE = (tag) => document.createElement(tag);
+
+const lugar = caja("#slices")
+
 const newCard = (obj) => {
-  const div= document.createElement("div")
+  const div= newE("div")
   div.className = `col card-img mb-4 card border-0 d-flex flex-wrap`
   div.innerHTML = `
     <div class="carta img mb-2 card-img-modified">
@@ -30,10 +34,22 @@ const newCard = (obj) => {
   return div
 }
 
+const showCards = (arr)=>{
+
+  lugar.innerHTML= "";
+
+  arr.forEach(element => {
+    const card = newCard(element)
+    lugar.appendChild(card)
+  });
+}
+
 
 
 
 export default {
   newCard,
   caja,
+  showCards,
+  newE
 }
