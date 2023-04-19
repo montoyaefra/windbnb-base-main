@@ -19,9 +19,25 @@ location.addEventListener("keyup", ()=>{
   dom.showCards(filtered);
 })
 
-const finlad = dom.caja("#place").innerHTML=`${datos[0].country}`
+//finlad
+let allDataHasCountry = true;
+
+for (let i = 0; i < datos.length; i++) {
+  if (!datos[i].country) {
+    allDataHasCountry = false;
+    break;
+  }
+}
+
+if (allDataHasCountry) {
+  const finlad = dom.caja("#place").innerHTML = datos[0].country;
+} else {
+  console.log('Not all data has a country property.');
+}
+
 const stays = dom.caja("#stays").innerHTML=`${datos.length}`
 //-------- 
+
 const inputElement = document.getElementById("firstlocation");
 const list = dom.caja("#lista");
 let listaAgregada = false;
