@@ -47,10 +47,18 @@ function ListLugares() {
     const lista = dom.newE("ul")
     lista.className = "lista d-flex gap-3 flex-column"
     lista.innerHTML=`
-    <li>${datos[0].city}, ${datos[0].country}</li>
-    <li>${datos[1].city}, ${datos[1].country}</li>
-    <li>${datos[7].city}, ${datos[7].country}</li>
-    <li>${datos[5].city}, ${datos[5].country}</li>
+    <li><span class="material-symbols-outlined">
+    location_on
+    </span>${datos[0].city}, ${datos[0].country}</li>
+    <li><span class="material-symbols-outlined">
+    location_on
+    </span>${datos[1].city}, ${datos[1].country}</li>
+    <li><span class="material-symbols-outlined">
+    location_on
+    </span>${datos[7].city}, ${datos[7].country}</li>
+    <li><span class="material-symbols-outlined">
+    location_on
+    </span>${datos[5].city}, ${datos[5].country}</li>
     `
     list.appendChild(lista)
     listaAgregada = true; 

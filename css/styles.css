@@ -68,10 +68,11 @@ p, .card-tittle{
 .divs{
     min-width: 140px;
 }
-
+/* list-style-image: url(/windbnb-base-main/img/coma.svg);  no me funciono lo pongo aparte*/
 .lista{
-    list-style-image: url(/windbnb-base-main/img/coma.svg);
     padding-top: 20px;
+    list-style: none;
+    
 }
 
 .guest{
@@ -82,3 +83,4 @@ footer span {
     margin-top: 40px;
     color: #333333;
 }
+
