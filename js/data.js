@@ -18,8 +18,9 @@ const filterByLocation = (arr, filtro) => {
   return filtered
 }
 
+
 export default {
   getData,
-  filterByLocation
+  filterByLocation,
 }
 

@@ -4,24 +4,42 @@ import dom from "./dom.js";
 
 const URL = './stays.json'
 
-
+const stays = dom.caja("#stays")
 const datos = await data.getData(URL);
-
+const finlad = dom.caja("#place")
 dom.showCards(datos)
 
 const location = dom.caja('#firstlocation');
 
-location.addEventListener("keyup", ()=>{
+const boton = dom.caja("#boton");
+
+
+// boton.addEventListener("click", (e) => {
+//   alert("Este botón está en mantenimiento");
+//   e.preventDefault()
+// });
+
+// esto funciona pero lo omiti para filtrar al darle al boton
+// location.addEventListener("keys", ()=>{
+//   let filtro = location.value;
+
+//   const filtered = filtro == " "? datos : data.filterByLocation(datos, filtro);
+//   stays.innerHTML=`${filtered.length}`
+//   dom.showCards(filtered);
+// })
+
+
+boton.addEventListener("click", (e)=>{
   let filtro = location.value;
 
   const filtered = filtro == " "? datos : data.filterByLocation(datos, filtro);
-
+  stays.innerHTML=`${filtered.length}`
   dom.showCards(filtered);
+  e.preventDefault()
 })
 
 //finlad
 let allDataHasCountry = true;
-
 for (let i = 0; i < datos.length; i++) {
   if (!datos[i].country) {
     allDataHasCountry = false;
@@ -30,12 +48,11 @@ for (let i = 0; i < datos.length; i++) {
 }
 
 if (allDataHasCountry) {
-  const finlad = dom.caja("#place").innerHTML = datos[0].country;
+  finlad.innerHTML = datos[0].country;
 } else {
   console.log('Not all data has a country property.');
 }
 
-const stays = dom.caja("#stays").innerHTML=`${datos.length}`
 //-------- 
 
 const inputElement = document.getElementById("firstlocation");
@@ -77,58 +94,63 @@ document.addEventListener('click', verifyClick);
 
 
 
-// boton
-const boton = dom.caja("#boton");
 
-boton.addEventListener("click", (e) => {
-  alert("Este botón está en mantenimiento");
-  e.preventDefault()
-});
 //-----------
 const inputElement2 = dom.caja("#getguest")
 const guests = dom.caja("#guests")
-let guestAgregado = false
 
-function numguest(){
-  if(!guestAgregado){
-    const guest = dom.newE("div")
-    guest.className="guest d-flex flex-row flex-wrap"
-    guest.innerHTML =`
-            <div class="">
-              <p class="d-flex flex-column">
-                <span class="fw-semibold">Adults</span>
-                <span class="text-body-secondary">Ages 13 or above</span>
-              </p>
-              <div class="align-items-center grid d-flex ">
-                <span class="border col-1 d-flex justify-content-center" role="button">-</span>
-                <input class="border border-0 text-center col-2" type="text" />
-                <span class="border col-1 d-flex justify-content-center" role="button">+</span>
-              </div>
-            </div>
-            <div>
-              <p class=" d-flex flex-column">
-                <span class="fw-semibold">Children</span>
-                <span class="text-body-secondary">Ages 2-12</span>
-              </p>
-              <div class="align-items-center grid d-flex">
-                <span class="border col-1 d-flex justify-content-center" role="button">-</span>
-                <input class="border border-0 text-center col-2" type="text"/>
-                <span class="border col-1 d-flex justify-content-center" role="button">+</span>
-              </div>
-            </div>
-      
-    `
-    guests.appendChild(guest)
-    guestAgregado = true
+
+
+inputElement2.addEventListener("click", () => {
+  guests.classList.remove("d-none");
+});
+
+
+// filtro fguests
+const getguest = dom.caja("#getguest")
+const menosA = dom.caja("#menosA")
+const masA= dom.caja("#masA")
+const adults= dom.caja("#adults") 
+const child = dom.caja("#child")
+const menosC = dom.caja("#menosC")
+const masC = dom.caja("#masC")
+
+let countA = 0 
+let countC = 0
+
+menosA.addEventListener("click",()=>{
+  if(countA > 0){
+    countA = countA -1
+    adults.value = countA
+    let suma = parseInt(child.value) + parseInt(adults.value)
+    getguest.value = suma
   }
-}
+})
 
-function verifyGuest(e) {
-  if (!inputElement2.contains(e.target)) {
-    guests.innerHTML = '';
-    guestAgregado = false; 
+masA.addEventListener("click",()=>{
+  if(countA < 10){
+    countA = countA +1
+    adults.value = countA
+    let suma = parseInt(child.value) + parseInt(adults.value)
+    getguest.value = suma
   }
-}
+})
 
-inputElement2.addEventListener('click', numguest);
-document.addEventListener('click', verifyGuest);
+menosC.addEventListener("click",()=>{
+  if(countC > 0){
+    countC = countC -1
+    child.value = countC
+    let suma = parseInt(child.value) + parseInt(adults.value)
+    getguest.value = suma
+  }
+})
+
+masC.addEventListener("click",()=>{
+  if(countC < 10){
+    countC = countC +1
+    child.value = countC
+    let suma = parseInt(child.value) + parseInt(adults.value)
+    getguest.value = suma
+  }
+})
+

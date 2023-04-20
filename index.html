@@ -62,24 +62,45 @@
 
       <div class="col-4 border rounded-4 labele">
         <label for="getguest" class="form-label label">GUESTS</label>
-        <input type="text" class="form-control border-0 opacity-50" id="getguest" placeholder="Add Guests" >
+        <input  type="text" class="form-control border-0 opacity-50" id="getguest" placeholder="Add Guests" >
       </div>
       
       <div class="col-4 border rounded-4  d-flex flex-row justify-content-center align-content-center">
         <button type="submit" class="btn" id="boton">
-          <div class="border rounded-5 search d-flex flex-row justify-content-center align-content-center divs h-auto">
-            <span class="material-symbols-outlined iconspan">search</span>
+          <div class="border rounded-5 search d-flex flex-row justify-content-center align-content-center divs h-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+            <span class="material-symbols-outlined iconspan" >search</span>
           <p>Search</p>
           </div>
         </button>
       </div>
     </form>
-      <div id="lista"></div>
+      <div id="lista" class="position-absolute"></div>
     <!-- -->
     </div>
     <!-- botones de suma y resta -->
-    <div id="guests" class="d-flex flex-wrap justify-content-center align-content-center mb-md-5">
-      
+    <div id="guests" class="d-flex flex-wrap align-content-center mb-md-5 flex-column gap-5 d-none" onclick="hidden">
+      <div class="">
+              <p class="d-flex flex-column">
+                <span class="fw-semibold">Adults</span>
+                <span class="text-body-secondary">Ages 13 or above</span>
+              </p>
+              <div class="align-items-center grid d-flex ">
+                <span id="menosA" class="border col-1 d-flex justify-content-center" role="button">-</span>
+                <input id="adults" class="border border-0 text-center col-2" type="text" value="0"/>
+                <span id="masA" class="border col-1 d-flex justify-content-center" role="button">+</span>
+              </div>
+            </div>
+            <div>
+              <p class=" d-flex flex-column">
+                <span class="fw-semibold">Children</span>
+                <span class="text-body-secondary">Ages 2-12</span>
+              </p>
+              <div class="align-items-center grid d-flex mb-5 pb-5">
+                <span id="menosC" class="border col-1 d-flex justify-content-center" role="button">-</span>
+                <input id="child" class="border border-0 text-center col-2" value="0" type="text"/>
+                <span id="masC" class="border col-1 d-flex justify-content-center" role="button">+</span>
+              </div>
+            </div>
     </div>
     
 </div>
