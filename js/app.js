@@ -9,33 +9,30 @@ const datos = await data.getData(URL);
 const finlad = dom.caja("#place")
 dom.showCards(datos)
 
-const location = dom.caja('#firstlocation');
+const location = document.getElementById('firstlocation');
 
 const boton = dom.caja("#boton");
 
 
-// boton.addEventListener("click", (e) => {
-//   alert("Este botón está en mantenimiento");
-//   e.preventDefault()
-// });
+
 
 // esto funciona pero lo omiti para filtrar al darle al boton
-// location.addEventListener("keys", ()=>{
-//   let filtro = location.value;
-
-//   const filtered = filtro == " "? datos : data.filterByLocation(datos, filtro);
-//   stays.innerHTML=`${filtered.length}`
-//   dom.showCards(filtered);
-// })
-
-
-boton.addEventListener("click", (e)=>{
+location.addEventListener("input", ()=>{
   let filtro = location.value;
 
   const filtered = filtro == " "? datos : data.filterByLocation(datos, filtro);
   stays.innerHTML=`${filtered.length}`
   dom.showCards(filtered);
+})
+
+
+boton.addEventListener("click", (e)=>{
   e.preventDefault()
+  // let filtro = location.value;
+
+  // const filtered = filtro == " "? datos : data.filterByLocation(datos, filtro);
+  // stays.innerHTML=`${filtered.length}`
+  // dom.showCards(filtered);
 })
 
 //finlad
@@ -118,39 +115,42 @@ const masC = dom.caja("#masC")
 let countA = 0 
 let countC = 0
 
-menosA.addEventListener("click",()=>{
-  if(countA > 0){
-    countA = countA -1
-    adults.value = countA
-    let suma = parseInt(child.value) + parseInt(adults.value)
-    getguest.value = suma
-  }
-})
+const filterCardsByGuests = () => {
+  const suma = parseInt(child.value) + parseInt(adults.value);
+  getguest.value = suma;
+  let filter = datos.filter((mGuests) => mGuests.maxGuests >= suma);
+  dom.showCards(filter);
+};
 
-masA.addEventListener("click",()=>{
-  if(countA < 10){
-    countA = countA +1
-    adults.value = countA
-    let suma = parseInt(child.value) + parseInt(adults.value)
-    getguest.value = suma
+menosA.addEventListener("click", () => {
+  if (countA > 0) {
+    countA = countA - 1;
+    adults.value = countA;
+    filterCardsByGuests();
   }
-})
+});
 
-menosC.addEventListener("click",()=>{
-  if(countC > 0){
-    countC = countC -1
-    child.value = countC
-    let suma = parseInt(child.value) + parseInt(adults.value)
-    getguest.value = suma
+masA.addEventListener("click", () => {
+  if (countA < 10) {
+    countA = countA + 1;
+    adults.value = countA;
+    filterCardsByGuests();
   }
-})
+});
 
-masC.addEventListener("click",()=>{
-  if(countC < 10){
-    countC = countC +1
-    child.value = countC
-    let suma = parseInt(child.value) + parseInt(adults.value)
-    getguest.value = suma
+menosC.addEventListener("click", () => {
+  if (countC > 0) {
+    countC = countC - 1;
+    child.value = countC;
+    filterCardsByGuests();
   }
-})
+});
+
+masC.addEventListener("click", () => {
+  if (countC < 10) {
+    countC = countC + 1;
+    child.value = countC;
+    filterCardsByGuests();
+  }
+});
 
